@@ -42,7 +42,18 @@ int main() {
     }
 
     // Imprimir el resultado final
-    cout << "El valor de convergencia de la serie es: " << sum << std::endl;
+    cout << "El valor de convergencia de la serie es: " << sum <<  endl;
 
     return 0;
 }
+
+  /*
+     * La sumatoria se realiza en el hilo principal después de que todos los hilos
+     * han terminado pthread_join. Esto asegura que el cálculo sea correcto y 
+     * previene condiciones de carrera al evitar el acceso concurrente a la variable sum. 
+     *
+     * En cuanto al parelismo: 
+     * El paralelismo creando un hilo para cada término de la serie. 
+     * Esto permite que cada hilo calcule su término de manera simultánea e independiente.
+     */
+    
